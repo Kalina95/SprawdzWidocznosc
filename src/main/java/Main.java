@@ -1,11 +1,17 @@
 import DataContainers.MainDataContainer;
 import DataContainers.VisibilityTable;
+import GUI.GuiMaker;
 import PhaseI.EncodeToUTF8;
 import PhaseI.ManageFiles;
 import PhaseII.Filter;
 import PhaseIII.InclinationCalculator;
 import PhaseIII.Interpolation;
 import PhaseIII.VisibilityChecker;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 import java.io.IOException;
 
@@ -81,7 +87,30 @@ public class Main {
 
         //************************************************************************
         //Phase IV
+        //chart
 
+
+
+
+
+
+        //containers
+        GuiMaker Window = new GuiMaker();
+        Window.mainFrameProperties("title", 900, 600);
+        Window.menuBarProperties();
+        Window.panelWithButtonsProperties();
+        Window.panelWithChartsProperties();
+        Window.fileChooserProperties("wybierz plik");
+        Window.buttonCalculateProperties("oblicz widoczność");
+        Window.labelLineProperties("");
+        Window.labelExportProperties("Wybierz format:");
+        Window.radioButtonProperties("dxf");
+        Window.buttonExportProperties("export");
+        Window.buttonInstructionsProperties("instrukcja");
+        Window.panelWithchartProprties();
+
+
+        Window.showMainFrame();
         //End of Phase IV
         //************************************************************************
 
