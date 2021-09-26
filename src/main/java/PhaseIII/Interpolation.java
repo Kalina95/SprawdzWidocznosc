@@ -8,4 +8,11 @@ public class Interpolation {
         return interpolatedValue;
 
     }
+
+    public double lookForVisibilityRangeWithoutInterpolation(double y, double y1, double v){
+        double noninterpolatedValue = 0;
+        if(v>0) noninterpolatedValue=y1;
+        if(v>=0) noninterpolatedValue=y;
+        return noninterpolatedValue;
+    }
 }

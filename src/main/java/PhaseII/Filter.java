@@ -1,6 +1,6 @@
 package PhaseII;
 
-import DataContainers.KmAndHTable;
+import DataContainers.MainDataContainer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,10 +15,10 @@ public class Filter {
             if(scanner.hasNext()) {
                 String word = scanner.next();
                 if(mainFilter(word)) {
-                    sendValuesToContainer(normalizer(scanner.next()), KmAndHTable.kmStartListInt);
-                    sendValuesToContainer(normalizer(scanner.next()), KmAndHTable.hStartListInt);
-                    sendValuesToContainer(normalizer(scanner.next()), KmAndHTable.kmEndListInt);
-                    sendValuesToContainer(normalizer(scanner.next()), KmAndHTable.hEndListInt);
+                    sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.kmStartListInt);
+                    sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.hStartListInt);
+                    sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.kmEndListInt);
+                    sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.hEndListInt);
                     //System.out.println("------------");
                 }
             }

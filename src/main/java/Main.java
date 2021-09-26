@@ -1,4 +1,5 @@
-import DataContainers.KmAndHTable;
+import DataContainers.MainDataContainer;
+import DataContainers.VisibilityTable;
 import PhaseI.EncodeToUTF8;
 import PhaseI.ManageFiles;
 import PhaseII.Filter;
@@ -60,36 +61,20 @@ public class Main {
         //Phase III
         InclinationCalculator calc = new InclinationCalculator();
         int i = 0;
-        for (double value : KmAndHTable.kmStartListInt) {
-            KmAndHTable.inclination.add(calc.calculateInclination(
-                    KmAndHTable.kmStartListInt.get(i),
-                    KmAndHTable.hStartListInt.get(i),
-                    KmAndHTable.kmEndListInt.get(i),
-                    KmAndHTable.hEndListInt.get(i)));
+        for (double value : MainDataContainer.kmStartListInt) {
+            MainDataContainer.inclination.add(calc.calculateInclination(
+                    MainDataContainer.kmStartListInt.get(i),
+                    MainDataContainer.hStartListInt.get(i),
+                    MainDataContainer.kmEndListInt.get(i),
+                    MainDataContainer.hEndListInt.get(i)));
             i++;
         }
 
-        VisibilityChecker Visibility = new VisibilityChecker();
-//        for (double value : KmAndHTable.inclination) {
-//            System.out.println(Visibility.IndexChecker(value));
-//        }
-
-        int[] speed130 = {0, 0, 390, 350, 330, 310, 300, 290, 280, 0, 0};
-        Interpolation interp = new Interpolation();
-        for (double value : KmAndHTable.inclination) {
-            System.out.println(interp.interpolate(
-                    Visibility.ValueChecker(value) - 2,
-                    Visibility.ValueChecker(value),
-                    KmAndHTable.speed130[Visibility.IndexChecker(value) - 1],
-                    KmAndHTable.speed130[Visibility.IndexChecker(value)],
-                    value)
-            );
-        }
-
-
-
-
+        VisibilityChecker checkVisibility = new VisibilityChecker();
+        checkVisibility.checkVisibilityWithInterpolation();
+        checkVisibility.checkVisibilityWithoutInterpolation();
         //End of Phase III
+        //inclination and visibility range are now in Data container.
         //************************************************************************
 
 
