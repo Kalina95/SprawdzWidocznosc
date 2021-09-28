@@ -1,7 +1,11 @@
 package DataContainers;
 
+import java.util.ArrayList;
+
 public class VisibilityTable {
 
+
+    public static Integer[] speedList = {30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130};
     public static int[] inclinationList = {-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10};
     public static int[] speed130 = {0, 0, 390, 350, 330, 310, 300, 290, 280, 0, 0};
     public static int[] speed120 = {0, 0, 340, 310, 290, 270, 260, 250, 240, 0, 0};
@@ -14,6 +18,9 @@ public class VisibilityTable {
     public static int[] speed50 ={55, 55, 55, 55, 50, 50, 50, 45, 45, 45, 45};
     public static int[] speed40 ={40, 40, 40, 40, 35, 35, 35, 35, 35, 35, 35};
     public static int[] speed30 ={25, 25, 25, 25, 20, 20, 20, 20, 20, 20, 20};
+
+
+
 
 }
 

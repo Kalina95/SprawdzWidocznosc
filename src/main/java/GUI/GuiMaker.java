@@ -1,57 +1,48 @@
 package GUI;
 
 import DataContainers.MainDataContainer;
-import org.jfree.JCommon;
-import org.jfree.chart.ChartFactory;
+import DataContainers.VisibilityTable;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GuiMaker {
 
-    private JFrame mainFrame;
-    private JMenuBar menu;
-    private Button buttonChooseFile;
-    private Button buttonInstructions;
-    private Button buttonCalculate;
-    private Button buttonExport;
-    private JRadioButton exportExtension;
-    private JFileChooser fileChooser;
-    private JPanel panelWithButtons;
-    private JPanel panelWithCharts;
-    private JFreeChart chartWithInterpolatedValues;
-    private JFreeChart chartWithNoninterpolatedValues;
-    private JLabel labelExport;
-    private JLabel labelLine;
-    private ChartPanel panelWithChart;
+    final private JFrame mainFrame;
+    final private JMenuBar menuMenuBar;
+    final private JButton chooseFileButton;
+    final private JButton calculateButton;
+    final private JButton buttonExport;
+    final private JPanel panelWithButtons;
+    final private JPanel panelWithCharts;
+    final private JLabel labelExport;
+    final private JLabel labelLine;
+    final private ChartPanel panelWithChart;
+    final private JComboBox jComboBoxSpeedList;
+    final private JComboBox jComboBoxExtensionLsit;
+
+    ActionListener actionListener = new AssignActions();
 
 
     public GuiMaker() {
         this.mainFrame = new JFrame();
-        this.menu = new JMenuBar();
-        this.buttonChooseFile = new Button();
-        this.buttonInstructions = new Button();
-        this.buttonCalculate = new Button();
-        this.buttonExport = new Button();
-        this.exportExtension = new JRadioButton();
-        this.fileChooser = new JFileChooser();
+        this.menuMenuBar = new JMenuBar();
+        this.chooseFileButton = new JButton("openFile");
+        this.calculateButton = new JButton("calculate");
+        this.buttonExport = new JButton("export");
         this.panelWithButtons = new JPanel();
         this.panelWithCharts = new JPanel();
-        //this.chartWithNoninterpolatedValues = new JFreeChart();
         this.labelExport = new JLabel();
         this.labelLine = new JLabel();
         ChartMaker createChart = new ChartMaker();
         this.panelWithChart = new ChartPanel(createChart.createChart(createChart.dataset()));
+
+
+        this.jComboBoxSpeedList = new JComboBox(VisibilityTable.speedList);
+        this.jComboBoxExtensionLsit = new JComboBox(MainDataContainer.extensionsList);
 
     }
 
@@ -68,52 +59,46 @@ public class GuiMaker {
     }
 
     public void menuBarProperties(){
-        this.mainFrame.add(menu, BorderLayout.NORTH);
-        this.mainFrame.setJMenuBar(menu);
-    }
-
-    public void updateMainFrameTitle(String title){
-        this.mainFrame.setTitle(title);
+        this.mainFrame.add(menuMenuBar, BorderLayout.NORTH);
+        this.mainFrame.setJMenuBar(menuMenuBar);
     }
 
     public void panelWithButtonsProperties(){
         this.panelWithButtons.setLayout(new GridLayout(15,1,1,1));
         this.mainFrame.add(panelWithButtons, BorderLayout.WEST);
+        this.panelWithButtons.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
     }
 
     public void panelWithChartsProperties(){
         this.mainFrame.add(panelWithCharts, BorderLayout.EAST);
+        this.panelWithCharts.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
     }
 
-    public void buttonChooseFileProperties(){
-        this.panelWithButtons.add(buttonChooseFile);
+    public void panelWithchartProprties(){
+        this.panelWithCharts.add(panelWithChart);
     }
 
-    public void buttonInstructionsProperties(String label){
-        this.panelWithButtons.add(buttonInstructions);
-        this.buttonInstructions.setSize(20,5);
-        this.buttonInstructions.setLabel(label);
-    }
 
     public void fileChooserProperties(String label){
-        this.panelWithButtons.add(buttonChooseFile);
-        this.buttonChooseFile.setLabel(label);
+        this.panelWithButtons.add(chooseFileButton);
+        this.chooseFileButton.setLabel(label);
+        this.chooseFileButton.addActionListener(actionListener);
+
     }
 
     public void buttonCalculateProperties(String label){
-        this.panelWithButtons.add(buttonCalculate);
-        this.buttonCalculate.setLabel(label);
+        this.panelWithButtons.add(calculateButton);
+        this.calculateButton.setLabel(label);
+        this.calculateButton.addActionListener(actionListener);
     }
 
     public void buttonExportProperties(String label){
         this.panelWithButtons.add(buttonExport);
         this.buttonExport.setLabel(label);
+        this.buttonExport.addActionListener(actionListener);
     }
 
-    public void radioButtonProperties(String label){
-        this.panelWithButtons.add(exportExtension);
-        this.exportExtension.setText(label);
-    }
 
     public void labelExportProperties(String label){
         this.panelWithButtons.add(labelExport);
@@ -125,20 +110,20 @@ public class GuiMaker {
         this.labelLine.setText(label);
     }
 
-    public void panelWithchartProprties(){
-        this.panelWithCharts.add(panelWithChart);
+
+
+
+    public void speedListComboBoxProperties(){
+        this.panelWithButtons.add(jComboBoxSpeedList);
+        this.jComboBoxSpeedList.addActionListener(actionListener);
     }
 
-
-    public JPanel getPanelWithButtons() {
-        return panelWithButtons;
+    public void extensionsListComboBoxProperties(){
+        this.panelWithButtons.add(jComboBoxExtensionLsit);
+        this.jComboBoxExtensionLsit.addActionListener(actionListener);
     }
 
-    public JPanel getPanelWithCharts() {
-        return panelWithCharts;
+    public JFrame getMainFrame() {
+        return mainFrame;
     }
-
-
-
-
 }

@@ -1,21 +1,16 @@
 import DataContainers.MainDataContainer;
-import DataContainers.VisibilityTable;
-import GUI.GuiMaker;
+import GUI.Constants;
 import PhaseI.EncodeToUTF8;
 import PhaseI.ManageFiles;
 import PhaseII.Filter;
 import PhaseIII.InclinationCalculator;
-import PhaseIII.Interpolation;
 import PhaseIII.VisibilityChecker;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+
 
 import java.io.IOException;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -90,27 +85,22 @@ public class Main {
         //chart
 
 
-
-
-
-
+        Constants constants = new Constants();
         //containers
-        GuiMaker Window = new GuiMaker();
-        Window.mainFrameProperties("title", 900, 600);
-        Window.menuBarProperties();
-        Window.panelWithButtonsProperties();
-        Window.panelWithChartsProperties();
-        Window.fileChooserProperties("wybierz plik");
-        Window.buttonCalculateProperties("oblicz widoczność");
-        Window.labelLineProperties("");
-        Window.labelExportProperties("Wybierz format:");
-        Window.radioButtonProperties("dxf");
-        Window.buttonExportProperties("export");
-        Window.buttonInstructionsProperties("instrukcja");
-        Window.panelWithchartProprties();
+        constants.getWindow().mainFrameProperties("title", 900, 500);
+        constants.getWindow().menuBarProperties();
+        constants.getWindow().panelWithButtonsProperties();
+        constants.getWindow().panelWithChartsProperties();
+        constants.getWindow().fileChooserProperties("wybierz plik");
+        constants.getWindow().speedListComboBoxProperties();
+        constants.getWindow().buttonCalculateProperties("oblicz widoczność");
+        constants.getWindow().labelLineProperties("");
+        constants.getWindow().labelExportProperties("Wybierz format:");
+        constants.getWindow().extensionsListComboBoxProperties();
+        constants.getWindow().buttonExportProperties("export");
+        constants.getWindow().panelWithchartProprties();
 
-
-        Window.showMainFrame();
+        constants.getWindow().showMainFrame();
         //End of Phase IV
         //************************************************************************
 

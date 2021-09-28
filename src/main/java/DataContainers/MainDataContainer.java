@@ -15,6 +15,9 @@ public class MainDataContainer {
     public static ArrayList<Double> interpolatedVisibilityRange = new ArrayList<Double>();
     public static ArrayList<Double> nonInterpolatedVisibilityRange = new ArrayList<Double>();
 
+    //here are extensions to export
+    public static String[] extensionsList = {"dxf", "txt", "csv"};
+
     public static void printAllValues(ArrayList list){
         for(int i=0; i<list.size(); i++){
             System.out.println(list.get(i));
