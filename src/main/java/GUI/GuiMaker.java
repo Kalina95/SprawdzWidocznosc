@@ -26,6 +26,8 @@ public class GuiMaker {
 
     ActionListener actionListener = new AssignActions();
 
+    ChartMaker createChart;
+
 
     public GuiMaker() {
         this.mainFrame = new JFrame();
@@ -37,7 +39,7 @@ public class GuiMaker {
         this.panelWithCharts = new JPanel();
         this.labelExport = new JLabel();
         this.labelLine = new JLabel();
-        ChartMaker createChart = new ChartMaker();
+        this.createChart = new ChartMaker();
         this.panelWithChart = new ChartPanel(createChart.createChart(createChart.dataset()));
 
 
@@ -45,6 +47,12 @@ public class GuiMaker {
         this.jComboBoxExtensionLsit = new JComboBox(MainDataContainer.extensionsList);
 
     }
+
+
+    public ChartPanel getPanelWithChart() {
+        return panelWithChart;
+    }
+
 
     public void mainFrameProperties(String fileName, int width, int height){
         this.mainFrame.setSize(width, height);
@@ -75,10 +83,13 @@ public class GuiMaker {
 
     }
 
-    public void panelWithchartProprties(){
+    public void panelWithchartProprties(ChartPanel panelWithChart){
         this.panelWithCharts.add(panelWithChart);
     }
 
+    public JPanel getPanelWithCharts() {
+        return panelWithCharts;
+    }
 
     public void fileChooserProperties(String label){
         this.panelWithButtons.add(chooseFileButton);

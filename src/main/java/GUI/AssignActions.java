@@ -12,7 +12,7 @@ public class AssignActions extends JFrame implements ActionListener {
         String cmd = e.getActionCommand();
 
         if(cmd.equals("wybierz plik")) action.openFile();
-        if(cmd.equals("oblicz widoczność")) System.out.println("oblicz widocznosc");
+        if(cmd.equals("oblicz widoczność")) action.calculate();
         if(cmd.equals("export")) System.out.println("export");
 
 

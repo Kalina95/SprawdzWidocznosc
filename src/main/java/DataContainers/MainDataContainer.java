@@ -18,9 +18,14 @@ public class MainDataContainer {
     //here are extensions to export
     public static String[] extensionsList = {"dxf", "txt", "csv"};
 
-    public static void printAllValues(ArrayList list){
-        for(int i=0; i<list.size(); i++){
-            System.out.println(list.get(i));
-        }
+    public void clearContainers(){
+        kmStartListInt.clear();
+        hStartListInt.clear();
+        kmEndListInt.clear();
+        hEndListInt.clear();
+        inclination.clear();
+        interpolatedVisibilityRange.clear();
+        interpolatedVisibilityRange.clear();
+        nonInterpolatedVisibilityRange.clear();
     }
 }
