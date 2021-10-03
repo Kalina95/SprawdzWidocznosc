@@ -19,7 +19,6 @@ public class Filter {
                     sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.hStartListInt);
                     sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.kmEndListInt);
                     sendValuesToContainer(normalizer(scanner.next()), MainDataContainer.hEndListInt);
-                    //System.out.println("------------");
                 }
             }
             else{
@@ -37,9 +36,6 @@ public class Filter {
         }
     }
 
-    void sendValuesToContainer(String stringToSend, ArrayList list){
-        list.add(stringToSend);
-    }
     void sendValuesToContainer(Double intToSend, ArrayList list){
         list.add(intToSend);
     }
@@ -48,13 +44,11 @@ public class Filter {
         String newString= null;
         if (stringToNormalize.contains("+") | stringToNormalize.contains(".")){
             newString=stringToNormalize.replace("+", "");
-            //newString=newString.replace(".", ",");
         }
         double intValueOfString;
         if (newString.equals("0000.00")){
             newString="0.00";
             intValueOfString=Double.valueOf(newString);
-            //System.out.println(intValueOfString);
             return intValueOfString;
         }
         else{
@@ -66,7 +60,6 @@ public class Filter {
             }
         }
         intValueOfString=Double.valueOf(newString);
-        //System.out.println(intValueOfString);
         return intValueOfString;
     }
 

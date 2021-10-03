@@ -2,9 +2,10 @@ package PhaseI;
 
 import java.io.*;
 
+//this class is needed because file I received has been in some weird encoding.
 public class EncodeToUTF8 {
 
-    public static String newFileAdress;
+    private static String newFileAdress;
 
     public void encode(File fileToEncode) throws IOException, FileNotFoundException {
         String fileAdress = fileToEncode.getCanonicalPath();
@@ -12,8 +13,8 @@ public class EncodeToUTF8 {
         BufferedReader in = new BufferedReader(
                 new InputStreamReader((new FileInputStream(fileToEncode)), "UTF-8"));
 
-        newFileAdress = fileAdress + "_UTF-8_temp";
-        File newFile = new File(fileAdress + "_UTF-8_temp");
+        newFileAdress = fileAdress + "_UTF-8_temp.txt";
+        File newFile = new File(fileAdress + "_UTF-8_temp.txt");
         FileWriter writer;
         writer = new FileWriter(newFile);
         String line;
@@ -24,4 +25,7 @@ public class EncodeToUTF8 {
 
     }
 
+    public static String getNewFileAdress() {
+        return newFileAdress;
+    }
 }

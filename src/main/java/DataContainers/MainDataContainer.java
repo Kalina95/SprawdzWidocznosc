@@ -18,11 +18,10 @@ public class MainDataContainer {
     //here are extensions to export
     public static String[] extensionsList = {"dxf", "txt", "csv"};
 
+
+    //method clearContainers is used in Actions/Calculate to avoid
+    //pointer exception when Visibility range is calculated for another speed
     public void clearContainers(){
-        kmStartListInt.clear();
-        hStartListInt.clear();
-        kmEndListInt.clear();
-        hEndListInt.clear();
         inclination.clear();
         interpolatedVisibilityRange.clear();
         interpolatedVisibilityRange.clear();

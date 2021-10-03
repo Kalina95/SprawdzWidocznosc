@@ -1,4 +1,6 @@
 import GUI.Constants;
+import PhaseI.EncodeToUTF8;
+import PhaseI.ManageFiles;
 
 public class Main {
 
@@ -32,13 +34,13 @@ public class Main {
         constants.getWindow().buttonExportProperties("export");
         constants.getWindow().panelWithchartProprties(constants.getWindow().getPanelWithChart());
 
-
-
-
-
         constants.getWindow().showMainFrame();
         //End of Phase IV
         //************************************************************************
+
+
+
+
 
     }
 }

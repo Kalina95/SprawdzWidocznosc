@@ -1,5 +1,6 @@
 package PhaseIII;
 
+//calculates inclination for 1 piece of the road. So the for loop will be needed to calculate whole road
 public class InclinationCalculator {
     public double calculateInclination(Double kmStart, Double hStart, Double kmEnd, Double hEnd){
         double length;

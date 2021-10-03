@@ -137,4 +137,12 @@ public class GuiMaker {
     public JFrame getMainFrame() {
         return mainFrame;
     }
+
+    public JComboBox getjComboBoxSpeedList() {
+        return jComboBoxSpeedList;
+    }
+
+    public JComboBox getjComboBoxExtensionLsit() {
+        return jComboBoxExtensionLsit;
+    }
 }
