@@ -18,6 +18,10 @@ public class MainDataContainer {
     //here are extensions to export
     public static String[] extensionsList = {"dxf", "txt", "csv"};
 
+    //ArrayLists to export
+    public static ArrayList<Double> interpolatedVisibilityRangeToExport = new ArrayList<Double>();
+    public static ArrayList<Double> nonInterpolatedVisibilityRangeToExport = new ArrayList<Double>();
+
 
     //method clearContainers is used in Actions/Calculate to avoid
     //pointer exception when Visibility range is calculated for another speed
@@ -26,5 +30,10 @@ public class MainDataContainer {
         interpolatedVisibilityRange.clear();
         interpolatedVisibilityRange.clear();
         nonInterpolatedVisibilityRange.clear();
+    }
+
+    public void clearContainersToExport(){
+        interpolatedVisibilityRangeToExport.clear();
+        nonInterpolatedVisibilityRangeToExport.clear();
     }
 }

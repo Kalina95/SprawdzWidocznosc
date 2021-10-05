@@ -15,7 +15,7 @@ public class AssignActions extends JFrame implements ActionListener {
         //if there is new button, new line should be added here
         if(cmd.equals("wybierz plik")) action.openFile();
         if(cmd.equals("oblicz widoczność")) action.calculate();
-        if(cmd.equals("export")) System.out.println("export");
+        if(cmd.equals("export")) action.export();
 
 
     }

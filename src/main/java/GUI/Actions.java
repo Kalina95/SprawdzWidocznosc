@@ -6,6 +6,8 @@ import PhaseI.ManageFiles;
 import PhaseII.Filter;
 import PhaseIII.InclinationCalculator;
 import PhaseIII.VisibilityChecker;
+import PhaseIV.ExportToDXF;
+import PhaseIV.ExportToTXT;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
@@ -96,6 +98,43 @@ public class Actions {
     }
 
     public void export(){
+        JFileChooser f = new JFileChooser();
+        f.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        f.showSaveDialog(null);
+
+
+
+        if(constants.getWindow().getjComboBoxExtensionLsit().getSelectedItem().equals("txt")) {
+            System.out.println("jestes tutaj po txt");
+
+            String URL = f.getSelectedFile().getAbsolutePath() + ".txt";
+            ExportToTXT exportToTXT = new ExportToTXT(MainDataContainer.hStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
+
+            try {
+                exportToTXT.export(URL);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(constants.getWindow().getjComboBoxExtensionLsit().getSelectedItem().equals("dxf")) {
+            System.out.println("jestes tutaj po dxf");
+
+            String URL = f.getSelectedFile().getAbsolutePath() + ".dxf";
+            ExportToDXF exportToDXF = new ExportToDXF(MainDataContainer.hStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
+
+            try {
+                exportToDXF.export(URL);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else {
+            System.out.println("jestes tutaj po else");
+        }
 
     }
+
+
 }

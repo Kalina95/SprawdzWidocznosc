@@ -72,6 +72,15 @@ public class VisibilityChecker {
                     value)
             );
         }
+        for (double value : MainDataContainer.inclination) {
+            MainDataContainer.interpolatedVisibilityRangeToExport.add(interp.interpolate(
+                    Visibility.valueChecker(value) - 2,
+                    Visibility.valueChecker(value),
+                    checkWhatSpeedIsSelected()[Visibility.indexChecker(value) - 1],
+                    checkWhatSpeedIsSelected()[Visibility.indexChecker(value)],
+                    value)
+            );
+        }
     }
 
     public void checkVisibilityWithoutInterpolation(){
@@ -84,6 +93,14 @@ public class VisibilityChecker {
                     VisibilityTable.speed130[Visibility.indexChecker(value)],
                     value)
             );
+        }
+        for (double value : MainDataContainer.inclination) {
+            MainDataContainer.nonInterpolatedVisibilityRangeToExport.add
+                    (interp.lookForVisibilityRangeWithoutInterpolation(
+                            VisibilityTable.speed130[Visibility.indexChecker(value) - 1],
+                            VisibilityTable.speed130[Visibility.indexChecker(value)],
+                            value)
+                    );
         }
     }
 

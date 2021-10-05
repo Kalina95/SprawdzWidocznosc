@@ -1,6 +1,7 @@
 import GUI.Constants;
 import PhaseI.EncodeToUTF8;
 import PhaseI.ManageFiles;
+import PhaseIV.ExportToTXT;
 
 public class Main {
 
@@ -8,15 +9,12 @@ public class Main {
     public static void main(String[] args) {
 
         /*
-        Application is divided into 4 Phases:
+        Application during creation process was divided into 4 Phases:
         PhaseI - Import and decode txt file.
         PhaseII - PhaseII.Filter and normalize values.
-        PhaseIII - Calculate visibility and inclination.
-        PhaseIV - Show Values on charts.
-
-        Creating GUI is another task.
+        PhaseIII - Calculate visibility and inclination, showing data on chart.
+        PhaseIV - Exporting values to txt, csv and dxf files.
          */
-
 
         Constants constants = new Constants();
 
@@ -35,12 +33,6 @@ public class Main {
         constants.getWindow().panelWithchartProprties(constants.getWindow().getPanelWithChart());
 
         constants.getWindow().showMainFrame();
-        //End of Phase IV
-        //************************************************************************
-
-
-
-
 
     }
 }
