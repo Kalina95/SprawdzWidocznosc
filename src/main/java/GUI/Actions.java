@@ -108,7 +108,7 @@ public class Actions {
             System.out.println("jestes tutaj po txt");
 
             String URL = f.getSelectedFile().getAbsolutePath() + ".txt";
-            ExportToTXT exportToTXT = new ExportToTXT(MainDataContainer.hStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
+            ExportToTXT exportToTXT = new ExportToTXT(MainDataContainer.kmStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
 
             try {
                 exportToTXT.export(URL);
@@ -121,7 +121,7 @@ public class Actions {
             System.out.println("jestes tutaj po dxf");
 
             String URL = f.getSelectedFile().getAbsolutePath() + ".dxf";
-            ExportToDXF exportToDXF = new ExportToDXF(MainDataContainer.hStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
+            ExportToDXF exportToDXF = new ExportToDXF(MainDataContainer.kmStartListInt, MainDataContainer.interpolatedVisibilityRangeToExport);
 
             try {
                 exportToDXF.export(URL);
